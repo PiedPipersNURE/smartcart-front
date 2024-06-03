@@ -1,0 +1,55 @@
+@font-face {
+  font-family: Inter Bald;
+  src: url("../Assets/Inter-Bold.ttf");
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("../Assets/Inter-Regular.ttf");
+}
+
+.first-paragraph {
+  display: flex;
+  gap: 23em;
+}
+.heading {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  width: 100%;
+  font-family: "Inter Bald";
+  text-align: center;
+}
+
+.first-paragraph-img {
+  height: 40em;
+  margin-left: 6em;
+}
+
+.first-paragraph-text {
+  font-family: "Inter";
+  font-size: 1.2em;
+  margin-right: 10em;
+  color: #828282;
+  line-height: 2;
+}
+
+.second-paragraph-text{
+    font-family: "Inter";
+    font-size: 1.2em;
+    margin-left: 6em;
+    color: #828282;
+    line-height: 1.5;
+}
+
+.second-paragraph{
+display: flex;
+gap: 23em;
+}
+
+.second-paragraph-img{
+    height: 40em;
+    margin-right: 4em;
+}
+.timeToStartImg {
+  width: 100%;
+}

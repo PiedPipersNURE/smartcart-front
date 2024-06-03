@@ -1,0 +1,66 @@
+@font-face {
+    font-family: Inter Bald;
+    src: url("../Assets/Inter-Bold.ttf");
+}
+
+@font-face{
+    font-family: Inter ;
+    src: url("../Assets/Inter-Regular.ttf");
+}
+
+.first-banner{
+    background-image:url("../Assets/background\ image.jpg");
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    height: 30em;
+}
+.first-banner-containtment{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    
+}
+
+.smart-cart{
+    font-size: 4.5em;
+    font-family: "Inter Bald", ;
+    margin: 0;
+    user-select: none;
+}
+
+.slogan{
+font-family: "Inter";
+font-size: 1.25em;
+color: gray;
+user-select: none;
+}
+.download-btn{
+    border: 0;
+    background-color: #0386D0;
+    color: white;
+    font-size: 1.3em;
+    padding: 0.6em 1em;
+    font-family: "Inter", sans-serif;
+    border-radius: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.download-btn:hover{
+    background-color: #066ba5;
+}
+
+.download-btn:active{
+    color: #0386D0;
+    background-color: aliceblue;
+}
+.download-img{
+    height: 1.2em;
+    color: white;
+}
+.banner2{
+    width: 100%;
+    height: auto;
+}

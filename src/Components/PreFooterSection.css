@@ -1,0 +1,26 @@
+.pre-footer-section {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.download-btn-down{
+    margin-left: 45%;
+    border: 0;
+    background-color: #0386D0;
+    color: white;
+    font-size: 1.3em;
+    padding: 0.6em 1em;
+    font-family: "Inter", sans-serif;
+    border-radius: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.download-btn-down:hover{
+    background-color: #066ba5;
+}
+
+.download-btn-down:active{
+    color: #0386D0;
+    background-color: aliceblue;
+}

@@ -18,12 +18,10 @@ function App() {
   return (
     <Router>
       <div>
-        <Header toggleGray={toggleGray}/>
-        <Routes>
-          <Route path="/" exact element={<Main isGray={isGray} />}/>
-          <Route path="/login" exact element={<LoginPopUp />}/>
 
-          {/* Добавьте другие маршруты здесь, если это необходимо */}
+        <Routes>
+          <Route path="/" exact element={(<div><Header toggleGray={toggleGray}/> <Main isGray={isGray} /></div>)}/>
+          <Route path="/login" exact element={<div className='login-body'><LoginPopUp /></div>}/>
         </Routes>
       </div>
     </Router>

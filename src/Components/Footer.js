@@ -16,6 +16,12 @@ const Footer = () => {
       const reviewElements = document.querySelectorAll('.review');
       const prevButton = document.getElementById('prevBtn');
       const nextButton = document.getElementById('nextBtn');
+
+      if (!carouselElement || !prevButton || !nextButton || reviewElements.length === 0) {
+        console.error('Carousel elements not found');
+        return;
+      }
+
       let currentIndex = 0;
 
       const showReview = (index) => {

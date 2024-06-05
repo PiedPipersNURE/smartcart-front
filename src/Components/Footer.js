@@ -68,10 +68,11 @@ const Footer = () => {
         </div>
         <div className="footer-section">
           <ul>
-            <li>More</li>
-            <li>Contact us</li>
-            <li>FAQ</li>
-            <li>Terms of Service</li>
+            <li className = "contact">daniil.ternovyi@nure.ua</li>
+            <li className = "contact">vadym.hlynskyi@nure.ua</li>
+            <li className = "contact">daniil.berehovyi@nure.ua</li>
+            <li className = "contact">andriy.yeremenko@nure.ua</li>
+            <li className = "contact">mykyta.diachenko1@nure.ua</li>
           </ul>
         </div>
       </div>

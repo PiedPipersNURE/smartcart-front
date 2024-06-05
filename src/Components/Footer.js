@@ -56,7 +56,7 @@ const Footer = ({isGray}) => {
     <footer className="footer">
       <div className="elfsight-app-7447ffce-3a48-4f74-ac4f-3ca37123f370" data-elfsight-app-lazy></div>
       
-      <div className="footer-content" style={{ backgroundColor: isGray ? 'gray' : ''}}>
+      <div className="footer-content" style={{ backgroundColor: isGray ? '#dfdfdf' : ''}}>
         <div className="footer-section">
           <h2>SmartCart</h2>
           <div className="social-icons">

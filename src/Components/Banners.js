@@ -16,6 +16,7 @@ return <div>
 </div>
 }
 function Banner2(){
+    // eslint-disable-next-line jsx-a11y/alt-text
     return <div><img src = {banner2} className = "banner2"></img></div>
 }
 export {Banner1, Banner2};

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { FaFacebookF, FaLinkedinIn, FaYoutube, FaInstagram } from 'react-icons/fa';
 import './Footer.css';
 
-const Footer = () => {
+const Footer = ({isGray}) => {
   useEffect(() => {
     const scriptElement = document.createElement('script');
     scriptElement.src = "https://static.elfsight.com/platform/platform.js";
@@ -56,7 +56,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="elfsight-app-7447ffce-3a48-4f74-ac4f-3ca37123f370" data-elfsight-app-lazy></div>
       
-      <div className="footer-content">
+      <div className="footer-content" style={{ backgroundColor: isGray ? 'gray' : ''}}>
         <div className="footer-section">
           <h2>SmartCart</h2>
           <div className="social-icons">

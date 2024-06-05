@@ -80,6 +80,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  transition: background-color 1s ease-in-out;
 }
 
 .footer-section {
@@ -104,4 +105,7 @@
   color: grey;
 }
 
+.footer-content.gray {
+background-color: #8d8d8d;
+}
 

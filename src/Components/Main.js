@@ -3,15 +3,16 @@ import {Banner1, Banner2} from './Banners'
 import Infoparagraphs from './Infoparagraphs'
 import PreFooterSection from './PreFooterSection'
 import Footer from './Footer'
+import React, { useEffect, useRef } from 'react';
 
 
-function Main(){
+function Main({isGray}){
     return <div className = "main">
         <Banner1 />
         <Banner2 />
         <Infoparagraphs />
         <PreFooterSection />
-        <Footer />
+        <Footer isGray = {isGray}/>
     </div>
 }
 export default Main

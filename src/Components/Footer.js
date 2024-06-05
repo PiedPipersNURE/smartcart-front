@@ -4,46 +4,46 @@ import './Footer.css';
 
 const Footer = () => {
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://static.elfsight.com/platform/platform.js";
-    script.defer = true;
-    script.dataset.useServiceCore = true;
-    document.body.appendChild(script);
+    const scriptElement = document.createElement('script');
+    scriptElement.src = "https://static.elfsight.com/platform/platform.js";
+    scriptElement.defer = true;
+    scriptElement.dataset.useServiceCore = true;
+    document.body.appendChild(scriptElement);
 
     // Set up the carousel functionality after elements are mounted
-    const initCarousel = () => {
-      const carousel = document.querySelector('.carousel');
-      const reviews = document.querySelectorAll('.review');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      let index = 0;
+    const initializeCarousel = () => {
+      const carouselElement = document.querySelector('.carousel');
+      const reviewElements = document.querySelectorAll('.review');
+      const prevButton = document.getElementById('prevBtn');
+      const nextButton = document.getElementById('nextBtn');
+      let currentIndex = 0;
 
-      function showReview(index) {
-        carousel.style.transform = `translateX(${-index * 100}%)`;
-      }
+      const showReview = (index) => {
+        carouselElement.style.transform = `translateX(${-index * 100}%)`;
+      };
 
-      prevBtn.addEventListener('click', () => {
-        index = (index > 0) ? index - 1 : reviews.length - 1;
-        showReview(index);
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : reviewElements.length - 1;
+        showReview(currentIndex);
       });
 
-      nextBtn.addEventListener('click', () => {
-        index = (index < reviews.length - 1) ? index + 1 : 0;
-        showReview(index);
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex < reviewElements.length - 1) ? currentIndex + 1 : 0;
+        showReview(currentIndex);
       });
 
       // Auto-slide functionality (optional)
-      const interval = setInterval(() => {
-        index = (index < reviews.length - 1) ? index + 1 : 0;
-        showReview(index);
+      const slideInterval = setInterval(() => {
+        currentIndex = (currentIndex < reviewElements.length - 1) ? currentIndex + 1 : 0;
+        showReview(currentIndex);
       }, 5000); // Change slide every 5 seconds
 
       // Clean up function to clear the interval
-      return () => clearInterval(interval);
+      return () => clearInterval(slideInterval);
     };
 
     // Wait for the script to be loaded before initializing the carousel
-    script.onload = initCarousel;
+    scriptElement.onload = initializeCarousel;
   }, []);
 
   return (

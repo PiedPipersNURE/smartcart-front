@@ -99,9 +99,9 @@
 }
 
 .footer-section li {
-  margin: 5px 0;
+  font-family: "Inter";
+  margin-bottom: 0.65em; 
+  color: grey;
 }
 
-.contact{
-  font-family: "Inter";
-}
+

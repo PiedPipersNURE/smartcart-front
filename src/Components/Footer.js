@@ -68,13 +68,14 @@ const Footer = ({isGray}) => {
         </div>
         <div className="footer-section">
           <ul>
-            <li className = "contact">daniil.ternovyi@nure.ua</li>
-            <li className = "contact">vadym.hlynskyi@nure.ua</li>
-            <li className = "contact">daniil.berehovyi@nure.ua</li>
-            <li className = "contact">andriy.yeremenko@nure.ua</li>
-            <li className = "contact">mykyta.diachenko1@nure.ua</li>
+            <li className="contact"><a href="mailto:daniil.ternovyi@nure.ua" className="black-link">daniil.ternovyi@nure.ua</a></li>
+            <li className="contact"><a href="mailto:vadym.hlynskyi@nure.ua" className="black-link">vadym.hlynskyi@nure.ua</a></li>
+            <li className="contact"><a href="mailto:daniil.berehovyi@nure.ua" className="black-link">daniil.berehovyi@nure.ua</a></li>
+            <li className="contact"><a href="mailto:andriy.yeremenko@nure.ua" className="black-link">andriy.yeremenko@nure.ua</a></li>
+            <li className="contact"><a href="mailto:mykyta.diachenko1@nure.ua" className="black-link">mykyta.diachenko1@nure.ua</a></li>
           </ul>
         </div>
+
       </div>
     </footer>
   );

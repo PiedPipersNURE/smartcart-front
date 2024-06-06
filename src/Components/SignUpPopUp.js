@@ -60,8 +60,9 @@ const SignUpPopUp = () => {
             console.error('Error:', error);
         });
     }
-
+    console.log(registration.token);
     return (
+        
         <div className="form-container" id='sign-up-form-container'>
             <p className="title">Create account</p>
             <form className="form">
@@ -99,6 +100,7 @@ const SignUpPopUp = () => {
                             c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
                     </svg>
                     <span>Sign up with Google</span>
+                    
                 </div>
                 <Link to='/'><div className='back-button'><img className="back-icon" src={backIcon} alt="back icon" /><span>Back</span></div></Link>
             </div>

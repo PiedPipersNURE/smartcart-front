@@ -29,3 +29,9 @@
 .profile-user-info{
     margin-top: 3vh;
 }
+
+.error-header{
+    margin-top: 10vh;
+    font-family: "Inter Bald";
+    text-align: center;
+}

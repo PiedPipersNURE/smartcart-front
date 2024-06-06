@@ -23,7 +23,7 @@ function App() {
       <div>
 
         <Routes>
-        <Route path="/profile" exact element={(<div><Header isLoggedIn= {isLoggedIn} toggleGray={toggleGray}/><Profile /></div>)}/>
+        <Route path="/profile" exact element={(<div><Header isLoggedIn= {isLoggedIn} toggleGray={toggleGray}/><Profile isLoggedIn={isLoggedIn}/></div>)}/>
           <Route path="/" exact element={(<div><Header isLoggedIn= {isLoggedIn} toggleGray={toggleGray}/> <Main isGray={isGray} /></div>)}/>
           <Route path="/login" exact element={<div className='login-body'><LoginPopUp setIsLoggedIn = {setIsLoggedIn}/></div>}/>
           <Route path="/sign-up" exact element={<div className='login-body'><SignUpPopUp setIsLoggedIn={setIsLoggedIn}/></div>}/>

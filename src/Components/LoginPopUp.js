@@ -1,17 +1,36 @@
 import './LoginPopUp.css'; 
-import React from 'react';
+import React, { useState } from 'react';
 import backIcon from '../Assets/login-back-icon.svg';
 import { Link } from 'react-router-dom';
 const LoginPopUp = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
 
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = () =>{
+    if(!validateEmail(email)){
+      alert("Введіть правильний email!")
+    }
+  }
   return (
     <div className="form-container">
       <p className="title">Welcome back</p>
       <form className="form">
-        <input type="email" className="input" placeholder="Email" />
-        <input type="password" className="input" placeholder="Password" />
-        <button type="button" className="form-btn">Log in</button>
+        <input type="email" className="input" placeholder="Email" onChange={handleEmailChange}/>
+        <input type="password" className="input" placeholder="Password" onChange={handlePasswordChange}/>
+        <button type="button" className="form-btn" onClick={handleSubmit}>Log in</button>
       </form>
       <p className="sign-up-label">
         Don't have an account? <Link to = "/sign-up"><span className="sign-up-link" >Sign up</span></Link>

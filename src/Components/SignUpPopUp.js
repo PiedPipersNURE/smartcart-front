@@ -1,17 +1,41 @@
 import './SignUpPopUp.css';
-import React from 'react';
+import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import backIcon from '../Assets/login-back-icon.svg';
 
 const SignUpPopUp = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+  
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+      };
+
+    const handleEmailChange = (event) => {
+      setEmail(event.target.value);
+    };
+  
+    const handlePasswordChange = (event) => {
+      setPassword(event.target.value);
+    };
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+      };
+      const handleSubmit = () =>{
+        if(!validateEmail(email)){
+          alert("Введіть правильний email!")
+        }
+      }
   return (
     <div className="form-container" id = 'sigh-up-form-container'>
       <p className="title">Create account</p>
       <form className="form">
-        <input type="text" className="input" placeholder="Name" />
-        <input type="email" className="input" placeholder="Email" />
-        <input type="password" className="input" placeholder="Password" />
-        <button className="form-btn">Create account</button>
+        <input type="text" className="input" placeholder="Name" onChange={handleNameChange}/>
+        <input type="email" className="input" placeholder="Email" onChange={handleEmailChange}/>
+        <input type="password" className="input" placeholder="Password" onChange={handlePasswordChange}/>
+        <button className="form-btn" onClick = {handleSubmit}>Create account</button>
       </form>
       <p className="sign-up-label">
         Already have an account?<Link to = "/login"><span className="sign-up-link">Log in</span></Link>

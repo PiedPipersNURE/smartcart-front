@@ -5,7 +5,7 @@ const FAQ = () =>{
 return(
     <div className="faq-body">
     <h1 className="faq-header">What is SmartCart?</h1>
-<p className="faq-paragraph">SmartCart is a revolutionary program designed to simplify the way families and groups of friends organize
+    <p className="faq-paragraph">SmartCart is a revolutionary program designed to simplify the way families and groups of friends organize
      their joint purchases. It provides a convenient and user-friendly platform for collaborative shopping management,
       addressing the common challenges of coordinating shopping lists and expenses among multiple users.</p>
 
@@ -22,11 +22,11 @@ innovative features, SmartCart aims to simplify the management of shared shoppin
  and facilitate seamless coordination of purchases.</p>
 
 <h1 className="faq-header">What are the key features of SmartCart?</h1>
-<p className="faq-paragraph">User-Centric Design: SmartCart prioritizes user experience and convenience, ensuring that individuals from all age groups and technical backgrounds can easily navigate the platform and utilize its features.
-Customization and Flexibility: The program offers customizable features such as personalized shopping lists and differentiated access controls to cater to the diverse preferences and requirements of different user groups.
-Efficiency and Collaboration: SmartCart emphasizes efficiency and collaboration, enabling users to efficiently manage joint purchases, communicate effectively with other group members, and stay updated on shopping list updates and reminders.
-Security and Privacy: The program prioritizes the security and privacy of user data, implementing robust authentication mechanisms and access controls to safeguard sensitive information.
-Scalability and Accessibility: SmartCart is designed to be scalable and accessible across various devices and platforms, ensuring that users can seamlessly access and utilize its features from anywhere.</p>
+<p className="faq-paragraph"><strong>User-Centric Design:</strong> SmartCart prioritizes user experience and convenience, ensuring that individuals from all age groups and technical backgrounds can easily navigate the platform and utilize its features.<br /><br />
+<strong>Customization and Flexibility:</strong> The program offers customizable features such as personalized shopping lists and differentiated access controls to cater to the diverse preferences and requirements of different user groups.<br /><br />
+<strong>Efficiency and Collaboration:</strong> SmartCart emphasizes efficiency and collaboration, enabling users to efficiently manage joint purchases, communicate effectively with other group members, and stay updated on shopping list updates and reminders.<br /><br />
+<strong>Security and Privacy:</strong> The program prioritizes the security and privacy of user data, implementing robust authentication mechanisms and access controls to safeguard sensitive information.<br /><br />
+<strong>Scalability and Accessibility:</strong> SmartCart is designed to be scalable and accessible across various devices and platforms, ensuring that users can seamlessly access and utilize its features from anywhere.</p>
 
 <h1 className="faq-header">How does SmartCart improve the shopping experience?</h1>
 <p className="faq-paragraph">SmartCart improves the shopping experience by providing a centralized platform for shared shopping management.
@@ -34,7 +34,7 @@ Scalability and Accessibility: SmartCart is designed to be scalable and accessib
       This reduces confusion, minimizes duplication of efforts, and ensures that no items are missed.</p>
 
 <h1 className="faq-header">Is SmartCart easy to use for all age groups?</h1>
-<p>Yes, SmartCart is designed with a user-centric approach, prioritizing ease of use and convenience.
+<p className="faq-paragraph">Yes, SmartCart is designed with a user-centric approach, prioritizing ease of use and convenience.
  The platform ensures that individuals from all age groups and technical backgrounds can easily navigate and utilize its features.</p>
 
 <h1 className="faq-header">How does SmartCart ensure the security and privacy of user data?</h1>

@@ -25,7 +25,7 @@ function App() {
           <Route path="/" exact element={(<div><Header toggleGray={toggleGray}/> <Main isGray={isGray} /></div>)}/>
           <Route path="/login" exact element={<div className='login-body'><LoginPopUp /></div>}/>
           <Route path="/sign-up" exact element={<div className='login-body'><SignUpPopUp /></div>}/>
-          <Route path="/FAQ" exact element = {(<div><Header toggleGray={toggleGray}/><FAQ /></div>)}/>
+          <Route path="/FAQ" exact element = {(<div className='faq-wrapper'><Header toggleGray={toggleGray}/><FAQ /></div>)}/>
         </Routes>
       </div>
     </Router>

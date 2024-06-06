@@ -1,0 +1,30 @@
+@font-face {
+    font-family: Inter Bald;
+    src: url("../Assets/Inter-Bold.ttf");
+}
+
+@font-face{
+    font-family: Inter ;
+    src: url("../Assets/Inter-Regular.ttf");
+}
+
+.faq-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+}
+
+.faq-header{
+    font-family: "Inter Bald";
+    font-size: 5vh;
+    text-align: center;
+}
+
+.faq-paragraph{
+    font-family: "Inter";
+    font-size: 2.5vh;
+    text-align: center;
+    line-height: 2;
+    color: rgb(128, 128, 128);
+}

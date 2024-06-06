@@ -1,0 +1,31 @@
+@font-face {
+    font-family: Inter Bald;
+    src: url("../Assets/Inter-Bold.ttf");
+}
+
+@font-face{
+    font-family: Inter ;
+    src: url("../Assets/Inter-Regular.ttf");
+}
+
+.user-info-header{
+    font-family: "Inter Bald";
+}
+.user-info-text {
+    font-family: "Inter";
+    font-size: 3vh;
+}
+
+.profile-picture{
+    margin-top: 3vh;
+    width: 10vw;
+    margin-left: 3vw;
+}
+.profile-body{
+    display: flex;
+    gap: 10vw;
+}
+
+.profile-user-info{
+    margin-top: 3vh;
+}

@@ -67,7 +67,7 @@ const Footer = ({isGray}) => {
           </div>
         </div>
         <div className="footer-section">
-          <ul>
+          <ul className="contact-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', listStyle: 'none', padding: 0, margin: 50 }}>
             <li className="contact"><a href="mailto:daniil.ternovyi@nure.ua" className="black-link">daniil.ternovyi@nure.ua</a></li>
             <li className="contact"><a href="mailto:vadym.hlynskyi@nure.ua" className="black-link">vadym.hlynskyi@nure.ua</a></li>
             <li className="contact"><a href="mailto:daniil.berehovyi@nure.ua" className="black-link">daniil.berehovyi@nure.ua</a></li>

@@ -14,7 +14,9 @@ const LoginPopUp = () => {
   };
 
   const googleAuth = () => {
-    const googleAuthLink = 'https://accounts.google.com/o/oauth2/v2/auth?client_id=YOUR_GOOGLE_CLIENT_ID&scope=openid%20profile%20email&response_type=code&redirect_uri=https://localhost:7236/signin-google&code_challenge=YOUR_CODE_CHALLENGE&code_challenge_method=S256&state=YOUR_STATE_PARAMETER';
+    const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+    const redirectUri = process.env.REACT_APP_GOOGLE_REDIRECT_URI;
+    const googleAuthLink = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&scope=openid%20profile%20email&response_type=code&redirect_uri=${redirectUri}&code_challenge=YOUR_CODE_CHALLENGE&code_challenge_method=S256&state=YOUR_STATE_PARAMETER`;
     
     window.location.href = googleAuthLink;
   };
@@ -22,7 +24,7 @@ const LoginPopUp = () => {
   const auth = () => {
     const authLink = 'https://localhost:7236/account/login';
     
-    axios.get(authLink)
+    axios.post(authLink, { email, password })
       .then(response => {
         console.log(response.data); 
       })
@@ -39,7 +41,8 @@ const LoginPopUp = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (!validateEmail(email)) {
       alert("Please enter a valid email!");
     } else {
@@ -50,10 +53,10 @@ const LoginPopUp = () => {
   return (
     <div className="form-container">
       <p className="title">Welcome back</p>
-      <form className="form">
-        <input type="email" className="input" placeholder="Email" onChange={handleEmailChange}/>
-        <input type="password" className="input" placeholder="Password" onChange={handlePasswordChange}/>
-        <button type="button" className="form-btn" onClick={handleSubmit}>Log in</button>
+      <form className="form" onSubmit={handleSubmit}>
+        <input type="email" className="input" placeholder="Email" onChange={handleEmailChange} required />
+        <input type="password" className="input" placeholder="Password" onChange={handlePasswordChange} required />
+        <button type="submit" className="form-btn">Log in</button>
       </form>
       <p className="sign-up-label">
         Don't have an account? <Link to="/sign-up"><span className="sign-up-link">Sign up</span></Link>

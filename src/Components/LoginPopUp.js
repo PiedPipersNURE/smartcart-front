@@ -1,7 +1,9 @@
-import './LoginPopUp.css'; 
 import React, { useState } from 'react';
-import backIcon from '../Assets/login-back-icon.svg';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import './LoginPopUp.css'; 
+import backIcon from '../Assets/login-back-icon.svg';
+
 const LoginPopUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,6 +11,24 @@ const LoginPopUp = () => {
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
+  };
+
+  const googleAuth = () => {
+    const googleAuthLink = 'https://accounts.google.com/o/oauth2/v2/auth?client_id=YOUR_GOOGLE_CLIENT_ID&scope=openid%20profile%20email&response_type=code&redirect_uri=https://localhost:7236/signin-google&code_challenge=YOUR_CODE_CHALLENGE&code_challenge_method=S256&state=YOUR_STATE_PARAMETER';
+    
+    window.location.href = googleAuthLink;
+  };
+
+  const auth = () => {
+    const authLink = 'https://localhost:7236/account/login';
+    
+    axios.get(authLink)
+      .then(response => {
+        console.log(response.data); 
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   };
 
   const handleEmailChange = (event) => {
@@ -19,11 +39,14 @@ const LoginPopUp = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = () =>{
-    if(!validateEmail(email)){
-      alert("Введіть правильний email!")
+  const handleSubmit = () => {
+    if (!validateEmail(email)) {
+      alert("Please enter a valid email!");
+    } else {
+      auth();
     }
-  }
+  };
+
   return (
     <div className="form-container">
       <p className="title">Welcome back</p>
@@ -33,11 +56,10 @@ const LoginPopUp = () => {
         <button type="button" className="form-btn" onClick={handleSubmit}>Log in</button>
       </form>
       <p className="sign-up-label">
-        Don't have an account? <Link to = "/sign-up"><span className="sign-up-link" >Sign up</span></Link>
+        Don't have an account? <Link to="/sign-up"><span className="sign-up-link">Sign up</span></Link>
       </p>
       <div className="buttons-container">
-       
-        <div className="google-login-button">
+        <div className="google-login-button" onClick={googleAuth}>
           <svg stroke="currentColor" fill="currentColor" strokeWidth="0" version="1.1" x="0px" y="0px" className="google-icon" viewBox="0 0 48 48" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
             <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12
               c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24
@@ -51,14 +73,10 @@ const LoginPopUp = () => {
           </svg>
           <span>Log in with Google</span>
         </div>
-        <Link to = '/'><div className='back-button'><img className = "back-icon" src={backIcon}></img>
-  <span>Back</span>
-</div></Link>
+        <Link to="/"><div className='back-button'><img className="back-icon" src={backIcon} alt="Back Icon"/><span>Back</span></div></Link>
       </div>
     </div>
-    
   ); 
-
 };
 
 export default LoginPopUp;

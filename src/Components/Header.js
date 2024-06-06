@@ -15,10 +15,11 @@ function Header({toggleGray}) {
 
     return (
         <div className="header">
-            <img src={logo} className="header-logo" alt="Logo"></img>
+                <Link to = "/"><img src={logo} className="header-logo" alt="Logo"></img></Link>
             <ul className="right-buttons">
-                <li><button className="right-button" onClick={scrollToContacts}>Contacts</button></li>
-                <li><button className="right-button" onClick={scrollToReviews}>Reviews</button></li>
+                <Link to = "/FAQ"><li><button className="right-button">FAQ</button></li></Link>
+                <Link to = "/"><li><button className="right-button" onClick={scrollToContacts}>Contacts</button></li></Link>
+                <Link to = "/"><li><button className="right-button" onClick={scrollToReviews}>Reviews</button></li></Link>
                 <Link to ="/login"><li><button className="right-button" id="sign-in" >Sign in</button></li></Link>
             </ul>
         </div>

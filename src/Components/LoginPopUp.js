@@ -4,7 +4,8 @@ import axios from 'axios';
 import './LoginPopUp.css'; 
 import backIcon from '../Assets/login-back-icon.svg';
 
-const LoginPopUp = () => {
+
+const LoginPopUp = ({setIsLoggedIn}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -19,6 +20,7 @@ const LoginPopUp = () => {
     const googleAuthLink = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&scope=openid%20profile%20email&response_type=code&redirect_uri=${redirectUri}&code_challenge=YOUR_CODE_CHALLENGE&code_challenge_method=S256&state=YOUR_STATE_PARAMETER`;
     
     window.location.href = googleAuthLink;
+    setIsLoggedIn(true);
   };
 
   const auth = () => {
@@ -47,6 +49,7 @@ const LoginPopUp = () => {
       alert("Please enter a valid email!");
     } else {
       auth();
+      setIsLoggedIn(true);
     }
   };
 

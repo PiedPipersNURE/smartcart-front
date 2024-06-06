@@ -3,7 +3,7 @@ import './Header.css';
 import logo from "../Assets/logo.png";
 import { Link } from 'react-router-dom';
 
-function Header({toggleGray}) {
+function Header({toggleGray, isLoggedIn}) {
     const scrollToReviews = () => {
         window.scrollBy(0, 5500);
     };
@@ -20,8 +20,8 @@ function Header({toggleGray}) {
                 <Link to = "/FAQ"><li><button className="right-button">FAQ</button></li></Link>
                 <Link to = "/"><li><button className="right-button" onClick={scrollToContacts}>Contacts</button></li></Link>
                 <Link to = "/"><li><button className="right-button" onClick={scrollToReviews}>Reviews</button></li></Link>
-                <Link to = "/profile"><li><button className="right-button">Profile</button></li></Link>
-                <Link to ="/login"><li><button className="right-button" id="sign-in" >Sign in</button></li></Link>
+                {isLoggedIn ? (<Link to = "/profile"><li><button className="right-button">Profile</button></li></Link>):(<Link to ="/login"><li><button className="right-button" id="sign-in" >Sign in</button></li></Link>)}
+                
             </ul>
         </div>
     );

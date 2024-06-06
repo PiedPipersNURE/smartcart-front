@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [isGray, setIsGray] = useState(false);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const toggleGray = () => {
     setIsGray(true);
     setTimeout(() => {
@@ -23,11 +23,11 @@ function App() {
       <div>
 
         <Routes>
-        <Route path="/profile" exact element={(<div><Header toggleGray={toggleGray}/><Profile /></div>)}/>
-          <Route path="/" exact element={(<div><Header toggleGray={toggleGray}/> <Main isGray={isGray} /></div>)}/>
-          <Route path="/login" exact element={<div className='login-body'><LoginPopUp /></div>}/>
-          <Route path="/sign-up" exact element={<div className='login-body'><SignUpPopUp /></div>}/>
-          <Route path="/FAQ" exact element = {(<div className='faq-wrapper'><Header toggleGray={toggleGray}/><FAQ /></div>)}/>
+        <Route path="/profile" exact element={(<div><Header isLoggedIn= {isLoggedIn} toggleGray={toggleGray}/><Profile /></div>)}/>
+          <Route path="/" exact element={(<div><Header isLoggedIn= {isLoggedIn} toggleGray={toggleGray}/> <Main isGray={isGray} /></div>)}/>
+          <Route path="/login" exact element={<div className='login-body'><LoginPopUp setIsLoggedIn = {setIsLoggedIn}/></div>}/>
+          <Route path="/sign-up" exact element={<div className='login-body'><SignUpPopUp setIsLoggedIn={setIsLoggedIn}/></div>}/>
+          <Route path="/FAQ" exact element = {(<div className='faq-wrapper'><Header isLoggedIn= {isLoggedIn} toggleGray={toggleGray}/><FAQ /></div>)}/>
         </Routes>
       </div>
     </Router>

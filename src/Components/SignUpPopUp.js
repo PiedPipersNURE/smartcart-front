@@ -1,11 +1,13 @@
 import './SignUpPopUp.css';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import backIcon from '../Assets/login-back-icon.svg';
 import axios from 'axios';
+import AuthContext from './AuthContext.js';
 
 const SignUpPopUp = () => {
+    const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './LoginPopUp.css'; 
 import backIcon from '../Assets/login-back-icon.svg';
+import AuthContext from './AuthContext.js';
 
 
-const LoginPopUp = ({setIsLoggedIn}) => {
+
+const LoginPopUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

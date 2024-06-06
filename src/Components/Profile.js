@@ -1,10 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './Profile.css';
-import CookieService from './cookieService';
+import CookieService from './cookieServices';
+import { Link } from 'react-router-dom';
+import AuthContext from './AuthContext.js';
 
-const Profile = ({ isLoggedIn }) => {
+const Profile = () => {
   const [userData, setUserData] = useState({ username: '', email: '' });
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  console.log(isLoggedIn)
 
+  const handleLogOut = () =>{
+    setIsLoggedIn(false)
+    alert("Ви вийшли з облікового запису")
+  }
   useEffect(() => {
     if (isLoggedIn) {
       const token = CookieService.getCookie('authToken');
@@ -35,6 +43,7 @@ const Profile = ({ isLoggedIn }) => {
             <h1 className="user-info-header">Email:</h1>
             <p className="user-info-text">{userData.email}</p>
           </div>
+          <Link to = "/"><button onClick = {handleLogOut}>Log out</button></Link>
         </div>
       ) : (
         <h1 className="error-header">You are not logged in!</h1>

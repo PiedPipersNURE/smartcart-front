@@ -1,6 +1,6 @@
 // cookieService.js
 import Cookies from 'js-cookie';
-import jwtDecode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 const CookieService = {
   // Save a cookie

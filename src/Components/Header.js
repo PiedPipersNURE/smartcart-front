@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css';
 import logo from "../Assets/logo.png";
 import { Link } from 'react-router-dom';
+import AuthContext from './AuthContext.js';
 
-function Header({toggleGray, isLoggedIn}) {
+function Header({toggleGray}) {
+    const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+    console.log(isLoggedIn)
     const scrollToReviews = () => {
         window.scrollBy(0, 5500);
+        {console.log(isLoggedIn)}
     };
 
     const scrollToContacts = () => {

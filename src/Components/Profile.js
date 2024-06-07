@@ -25,20 +25,9 @@ const Profile = () => {
   }, [isLoggedIn, getUserFromToken]);
 
   return (
-    <div>
+    <div className="profile-container">
       {isLoggedIn ? (
-        <div className="profile-body">
-          <img
-            src="https://www.svgrepo.com/show/335455/profile-default.svg"
-            alt=""
-            className="profile-picture"
-          />
-          <div className="profile-user-info">
-            <h1 className="user-info-header">Username:</h1>
-            <p className="user-info-text">{username}</p>
-            <h1 className="user-info-header">Email:</h1>
-            <p className="user-info-text">{email}</p>
-          </div>
+        <div className="profile-card">
           <Link to="/">
             <button className="Btn" onClick={handleLogOut}>
               <div className="sign">
@@ -53,6 +42,18 @@ const Profile = () => {
               <div className="text">Logout</div>
             </button>
           </Link>
+          <img
+            src="https://www.svgrepo.com/show/335455/profile-default.svg"
+            alt=""
+            className="profile-picture"
+          />
+          <div className="profile-user-info">
+            <h1 className="user-info-header">Username</h1>
+            <p className="user-info-text">{username}</p>
+            <h1 className="user-info-header">Email</h1>
+            <p className="user-info-text">{email}</p>
+          </div>
+          
         </div>
       ) : (
         <h1 className="error-header">You are not logged in!</h1>

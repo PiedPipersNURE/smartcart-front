@@ -1,16 +1,17 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './LoginPopUp.css'; 
 import backIcon from '../Assets/login-back-icon.svg';
 import AuthContext from './AuthContext.js';
-
-
+import Cookies from 'js-cookie';
 
 const LoginPopUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -27,11 +28,12 @@ const LoginPopUp = () => {
   };
 
   const auth = () => {
-    const authLink = 'https://localhost:7236/account/login';
+    const authLink = `https://localhost:7236/account/login/${email}/${password}`;
     
-    axios.post(authLink, { email, password })
+    axios.get(authLink)
       .then(response => {
-        console.log(response.data); 
+        Cookies.set('authToken', response.data, { expires: 7 });
+        navigate('/profile');
       })
       .catch(error => {
         console.error('Error:', error);

@@ -1,33 +1,30 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './Profile.css';
-import CookieService from './cookieServices';
 import { Link } from 'react-router-dom';
-import AuthContext from './AuthContext.js';
+import AuthContext from './AuthContext';
+import Cookies from 'js-cookie';
 
 const Profile = () => {
   const [userData, setUserData] = useState({ username: '', email: '' });
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-  console.log(isLoggedIn);
+  const { isLoggedIn, setIsLoggedIn, getUserFromToken } = useContext(AuthContext);
 
   const handleLogOut = () => {
+    Cookies.remove('authToken');
     setIsLoggedIn(false);
     alert("Ви вийшли з облікового запису");
   };
 
   useEffect(() => {
     if (isLoggedIn) {
-      const token = CookieService.getCookie('authToken');
-      if (token) {
-        const decodedToken = CookieService.decodeToken(token);
-        if (decodedToken) {
-          setUserData({
-            username: decodedToken.username,
-            email: decodedToken.email
-          });
-        }
+      const user = getUserFromToken();
+      if (user) {
+        setUserData({
+          username: user.username,
+          email: user.email,
+        });
       }
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, getUserFromToken]);
 
   return (
     <div>
@@ -54,7 +51,6 @@ const Profile = () => {
                   32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
                   </path>
                 </svg>
-
               </div>
               <div className="text">Logout</div>
             </button>

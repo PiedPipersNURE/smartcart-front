@@ -48,15 +48,14 @@ const SignUpPopUp = () => {
             password
         })
         .then(response => {
-            console.log(response.data);
-            const token = response.data.token; // Adjust according to your API response
+            const token = response.data;
             if (token) {
-                Cookies.set('authToken', token, { expires: 7 }); // Store token in cookies for 7 days
-                alert('Registration successful!');
-                navigate('/profile'); // Navigate to profile page
+                Cookies.set('authToken', token, { expires: 7 });
+                navigate('/profile');
             }
         })
         .catch(error => {
+            alert(error);
             console.error('Error:', error);
         });
     }

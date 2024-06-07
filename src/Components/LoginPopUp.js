@@ -19,12 +19,21 @@ const LoginPopUp = () => {
   };
 
   const googleAuth = () => {
+    const googleApiLogin = `https://localhost:7236/account/google-login`
+    axios.get(googleApiLogin).then(response => {
+      Cookies.set('authToken', response.data, { expires: 7 });
+      setIsLoggedIn(true);
+      navigate('/profile');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
     const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
     const redirectUri = process.env.REACT_APP_GOOGLE_REDIRECT_URI;
-    const googleAuthLink = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&scope=openid%20profile%20email&response_type=code&redirect_uri=${redirectUri}&code_challenge=YOUR_CODE_CHALLENGE&code_challenge_method=S256&state=YOUR_STATE_PARAMETER`;
+    //const googleAuthLink = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&scope=openid%20profile%20email&response_type=code&redirect_uri=${redirectUri}&code_challenge=YOUR_CODE_CHALLENGE&code_challenge_method=S256&state=YOUR_STATE_PARAMETER`;
     
-    window.location.href = googleAuthLink;
-    setIsLoggedIn(true);
+    //window.location.href = googleAuthLink;
+    // setIsLoggedIn(true);
   };
 
   const auth = () => {

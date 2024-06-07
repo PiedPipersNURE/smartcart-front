@@ -60,7 +60,6 @@ const SignUpPopUp = () => {
             console.error('Error:', error);
         });
     }
-    console.log(registration.token);
     return (
         
         <div className="form-container" id='sign-up-form-container'>

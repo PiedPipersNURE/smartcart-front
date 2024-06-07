@@ -48,6 +48,7 @@ const SignUpPopUp = () => {
             password
         })
         .then(response => {
+            console.log("dSDCVSDsd");
             const token = response.data;
             if (token) {
                 Cookies.set('authToken', token, { expires: 7 });
@@ -60,6 +61,7 @@ const SignUpPopUp = () => {
             console.error('Error:', error);
         });
     }
+
     return (
         
         <div className="form-container" id='sign-up-form-container'>

@@ -21,7 +21,11 @@ const LoginPopUp = () => {
   const googleAuth = () => {
     const googleApiLogin = `http://localhost:7236/account/google-login`
     axios.get(googleApiLogin).then(response => {
-      Cookies.set('authToken', response.data, { expires: 7 });
+      const generateRandomState = () => {
+        return Math.random().toString(36).substring(2);
+      };  
+      const state = generateRandomState();
+      Cookies.set('oauth_state', state);
       setIsLoggedIn(true);
       navigate('/profile');
     })
@@ -30,10 +34,11 @@ const LoginPopUp = () => {
     });
     const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
     const redirectUri = process.env.REACT_APP_GOOGLE_REDIRECT_URI;
-    //const googleAuthLink = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&scope=openid%20profile%20email&response_type=code&redirect_uri=${redirectUri}&code_challenge=YOUR_CODE_CHALLENGE&code_challenge_method=S256&state=YOUR_STATE_PARAMETER`;
+    const stateparam = Cookies.state;
+    const googleAuthLink = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&scope=openid%20profile%20email&response_type=code&redirect_uri=${redirectUri}&code_challenge=YOUR_CODE_CHALLENGE&code_challenge_method=S256&state=${stateparam}`;
     
-    //window.location.href = googleAuthLink;
-    // setIsLoggedIn(true);
+    window.location.href = googleAuthLink;
+    setIsLoggedIn(true);
   };
 
   const auth = () => {

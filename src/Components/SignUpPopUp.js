@@ -51,6 +51,7 @@ const SignUpPopUp = () => {
             const token = response.data;
             if (token) {
                 Cookies.set('authToken', token, { expires: 7 });
+                setIsLoggedIn(true);
                 navigate('/profile');
             }
         })

@@ -33,6 +33,7 @@ const LoginPopUp = () => {
     axios.get(authLink)
       .then(response => {
         Cookies.set('authToken', response.data, { expires: 7 });
+        setIsLoggedIn(true);
         navigate('/profile');
       })
       .catch(error => {
@@ -54,7 +55,6 @@ const LoginPopUp = () => {
       alert("Please enter a valid email!");
     } else {
       auth();
-      setIsLoggedIn(true);
     }
   };
 

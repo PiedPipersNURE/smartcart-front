@@ -5,23 +5,21 @@ import AuthContext from './AuthContext';
 import Cookies from 'js-cookie';
 
 const Profile = () => {
-  const [userData, setUserData] = useState({ username: '', email: '' });
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
   const { isLoggedIn, setIsLoggedIn, getUserFromToken } = useContext(AuthContext);
 
   const handleLogOut = () => {
     Cookies.remove('authToken');
     setIsLoggedIn(false);
-    alert("Ви вийшли з облікового запису");
   };
 
   useEffect(() => {
     if (isLoggedIn) {
       const user = getUserFromToken();
       if (user) {
-        setUserData({
-          username: user.username,
-          email: user.email,
-        });
+        setUsername(user.Username);
+        setEmail(user.email);
       }
     }
   }, [isLoggedIn, getUserFromToken]);
@@ -37,9 +35,9 @@ const Profile = () => {
           />
           <div className="profile-user-info">
             <h1 className="user-info-header">Username:</h1>
-            <p className="user-info-text">{userData.username}</p>
+            <p className="user-info-text">{username}</p>
             <h1 className="user-info-header">Email:</h1>
-            <p className="user-info-text">{userData.email}</p>
+            <p className="user-info-text">{email}</p>
           </div>
           <Link to="/">
             <button className="Btn" onClick={handleLogOut}>

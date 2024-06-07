@@ -13,7 +13,7 @@ const SignUpPopUp = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const registrationApiEndpoint = 'https://localhost:7236/account/registration';
+    const registrationApiEndpoint = 'http://localhost:7236/account/registration';
 
     const validateEmail = (email) => {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

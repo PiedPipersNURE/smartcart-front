@@ -19,7 +19,7 @@ const LoginPopUp = () => {
   };
 
   const googleAuth = () => {
-    const googleApiLogin = `https://localhost:7236/account/google-login`
+    const googleApiLogin = `http://localhost:7236/account/google-login`
     axios.get(googleApiLogin).then(response => {
       Cookies.set('authToken', response.data, { expires: 7 });
       setIsLoggedIn(true);
@@ -37,7 +37,7 @@ const LoginPopUp = () => {
   };
 
   const auth = () => {
-    const authLink = `https://localhost:7236/account/login/${email}/${password}`;
+    const authLink = `http://localhost:7236/account/login/${email}/${password}`;
     
     axios.get(authLink)
       .then(response => {
